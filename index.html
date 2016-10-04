@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app='chatApplication'>
+<head>
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width'>
+  <link rel='stylesheet' type='text/css' href="../bower_components/angular-material/angular-material.css">
+  <link rel='stylesheet' type='text/css' href="styles/chat.css">
+  <title>Chat Application</title>
+</head>
+<body>
+<div class="header">
+  <md-content>
+    <md-toolbar class="md-warn md-hue-3">
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>Chat Application</span>
+        </h2>
+        <span flex=""></span>
+        <span>{{userName}}</span>
+      </div>
+    </md-toolbar>
+  </md-content>
+</div>
+
+<div ng-view=""></div>
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-animate/angular-animate.js"></script>
+<script type="text/javascript" src="../bower_components/angular-aria/angular-aria.js"></script>
+<script type="text/javascript" src="../bower_components/angular-material/angular-material.js"></script>
+<script type="text/javascript" src="../bower_components/angular-messages/angular-messages.js"></script>
+<script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script type="text/javascript" src="../bower_components/angular-socket-io/socket.js"></script>
+
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="controllers/main.js"></script>
+<script type="text/javascript" src="controllers/register.js"></script>
+<script type="text/javascript" src="controllers/login.js"></script>
+<script type="text/javascript" src="controllers/chat.js"></script>
+
+<script type="text/javascript" src="services/register.js"></script>
+<script type="text/javascript" src="services/login.js"></script>
+<script type="text/javascript" src="services/socket.js"></script>
+</body>
+</html>

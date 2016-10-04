@@ -1,0 +1,34 @@
+<div layout="row" layout-xs="column">
+  <div flex="80">
+  <h3>Welcome {{userName}}</h3>
+  </div>
+  <div flex="20">
+    <h3>Online Users:</h3>
+    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch="" ng-repeat="user in usersOnline">
+        <md-card-title ng-click="sentRequest(user.id)">
+          <md-card-title-text>
+          <!--  <span class="md-headline">Online Users</span>-->
+            <span class="md-subhead">{{user.name}}</span>
+          </md-card-title-text>
+        </md-card-title>
+    </md-card>
+      <h3>Requests Received:</h3>
+      <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch="" ng-repeat="request in requestsReceived">
+          <md-card-title >
+            <md-card-title-text ng-click="acceptRequest(request.senderId)">
+            <!--  <span class="md-headline">Online Users</span>-->
+              <span class="md-subhead">{{request.name}}</span>
+            </md-card-title-text>
+          </md-card-title>
+      </md-card>
+      <h3>Request Accepted:</h3>
+      <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch="" ng-repeat="accept in requestAccepted">
+          <md-card-title >
+            <md-card-title-text >
+            <!--  <span class="md-headline">Online Users</span>-->
+              <span class="md-subhead">{{accept.name}}</span>
+            </md-card-title-text>
+          </md-card-title>
+      </md-card>
+  </div>
+</div>

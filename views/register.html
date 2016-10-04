@@ -1,0 +1,25 @@
+<div layout="column" layout-align="center center" layout-xs="column">
+
+  <md-input-container class="md-icon-float md-block">
+    <!-- Use floating label instead of placeholder -->
+    <label>UserName</label>
+    <input ng-model="user.userName" type="text" ng-required="true">
+  </md-input-container>
+
+  <md-input-container class="md-icon-float md-block">
+    <label>Password</label>
+    <input ng-model="user.password" type="password" ng-required="true">
+  </md-input-container>
+
+  <md-input-container class="md-icon-float md-block">
+    <label>Phone Number</label>
+    <input ng-model="user.phone" type="text" ng-required="true" >
+  </md-input-container>
+
+  <md-input-container class="md-block">
+    <!-- Use floating placeholder instead of label -->
+    <input ng-model="user.email" type="email" placeholder="Email" ng-required="true">
+  </md-input-container>
+  <md-button class="md-accent md-raised" ng-click="register()" ng-show="validateForm()">Register</md-button>
+  <p>{{error}}</p>
+</div>
