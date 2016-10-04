@@ -1,4 +1,5 @@
-angular.module('chatApplication',['ngRoute','ngMaterial', 'ngMessages','btford.socket-io']).config(function($routeProvider){
+angular.module('chatApplication',['ngRoute','ngMaterial', 'ngMessages','btford.socket-io'])
+.config(function($routeProvider,$mdThemingProvider){
   $routeProvider
     .when('/',{
       templateUrl:'views/main.html',
@@ -12,8 +13,11 @@ angular.module('chatApplication',['ngRoute','ngMaterial', 'ngMessages','btford.s
       templateUrl:'views/login.html',
       controller:'loginCtrl'
     })
-    .when('/chat/:userName',{
+    .when('/chat',{
       templateUrl:'views/chat.html',
       controller:'chatCtrl'
     });
+    $mdThemingProvider.theme('default')
+        .primaryPalette('teal')
+        .accentPalette('deep-orange');
 });

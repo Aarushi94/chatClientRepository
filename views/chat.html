@@ -1,34 +1,57 @@
 <div layout="row" layout-xs="column">
-  <div flex="80">
-  <h3>Welcome {{userName}}</h3>
+  <div flex="75">
+    <h3 id="welcome">Welcome {{userName}}</h3>
+    <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch="" ng-repeat="chat in chats">
+      <md-card-title>
+          <md-card-title-text>
+            <span class="md-subhead"><h4>Chat with {{chat.name}}</h4></span>
+            <div layout="row">
+              <div flex="80">
+                <span class="md-subhead">
+                  <md-input-container class="md-block">
+                    <input  type="text" placeholder="Type here" ng-model="msg">
+                  </md-input-container>
+                </span>
+              </div>
+              <div flex="20">
+                <md-button class="md-accent md-raised md-fab" ng-click="sendMessage(chat.id,msg)">Send</md-button>
+              </div>
+            </div>
+          </md-card-title-text>
+      </md-card-title>
+      <md-card-content ng-repeat="history in chat.data">
+        <p><b>{{history.sender}}</b>:{{history.message}}</p>
+      </md-card-content>
+    </md-card>
   </div>
+  <div flex="5"></div>
   <div flex="20">
     <h3>Online Users:</h3>
     <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch="" ng-repeat="user in usersOnline">
-        <md-card-title ng-click="sentRequest(user.id)">
-          <md-card-title-text>
+      <md-card-title ng-click="sentRequest(user.id,user.name)">
+        <md-card-title-text>
           <!--  <span class="md-headline">Online Users</span>-->
-            <span class="md-subhead">{{user.name}}</span>
-          </md-card-title-text>
-        </md-card-title>
+          <span class="md-subhead">{{user.name}}</span>
+        </md-card-title-text>
+      </md-card-title>
     </md-card>
-      <h3>Requests Received:</h3>
-      <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch="" ng-repeat="request in requestsReceived">
-          <md-card-title >
-            <md-card-title-text ng-click="acceptRequest(request.senderId)">
+    <h3>Request Sent:</h3>
+    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch="" ng-repeat="sent in requestSent">
+      <md-card-title >
+        <md-card-title-text >
             <!--  <span class="md-headline">Online Users</span>-->
-              <span class="md-subhead">{{request.name}}</span>
-            </md-card-title-text>
-          </md-card-title>
-      </md-card>
-      <h3>Request Accepted:</h3>
-      <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch="" ng-repeat="accept in requestAccepted">
-          <md-card-title >
-            <md-card-title-text >
+          <span class="md-subhead">{{sent.name}}</span>
+        </md-card-title-text>
+      </md-card-title>
+    </md-card>
+    <h3>Requests Received:</h3>
+    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch="" ng-repeat="request in requestsReceived">
+      <md-card-title >
+        <md-card-title-text ng-click="acceptRequest(request.senderId)">
             <!--  <span class="md-headline">Online Users</span>-->
-              <span class="md-subhead">{{accept.name}}</span>
-            </md-card-title-text>
-          </md-card-title>
-      </md-card>
+            <span class="md-subhead">{{request.name}}</span>
+        </md-card-title-text>
+      </md-card-title>
+    </md-card>
   </div>
 </div>
